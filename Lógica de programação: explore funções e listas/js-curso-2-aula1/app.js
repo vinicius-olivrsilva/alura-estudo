@@ -1,5 +1,5 @@
 let listaDeNumerosSorteados = [];
-let numeroLimite = 30;
+let numeroLimite = 7;
 let numeroSecreto = geraNumeroAleatorio();
 let tentativas = 1;
 
@@ -41,7 +41,7 @@ function verificarChute() {
         if(chute > numeroSecreto){
             exibirTextoNaTela("p", `O número secreto é menor que ${chute}`)
         } else {
-            exibirTextoNaTela("p", `O número secreto é Maior que ${chute}`)
+            exibirTextoNaTela("p", `O número secreto é maior que ${chute}`)
         }
         tentativas++;
         limparCampo();
@@ -66,8 +66,8 @@ function geraNumeroAleatorio() {
 }
 
 function reiniciarJogo() {
-    numeroSecreto = geraNumeroAleatorio();
-    limparCampo();
+    numeroSecreto = geraNumeroAleatorio(); // gerar outro numero aleatorio
+    limparCampo();  
     tentativas = 1;
     exibirMensageminicial();
     document.getElementById("reiniciar").setAttribute("disabled", true);
