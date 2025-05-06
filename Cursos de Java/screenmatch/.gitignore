@@ -12,6 +12,10 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
+.idea/
+*.iml
+out/
+
 # AWS User-specific
 .idea/**/aws.xml
 
@@ -87,10 +91,6 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml
 # *.ipr
-
-.idea/
-*.iml
-out/
 
 # Sonarlint plugin
 # https://plugins.jetbrains.com/plugin/7973-sonarlint
