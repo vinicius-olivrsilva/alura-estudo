@@ -10,9 +10,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Filme matrix = new Filme();
-        matrix.setNome("Matrix");
-        matrix.setAnoDeLancamento(1970);
+        Filme matrix = new Filme("Matrix", 1970);
         matrix.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + matrix.getDuracaoEmMinutos());
         System.out.println("------------------------------------");
@@ -28,9 +26,7 @@ public class Main {
         //System.out.println(matrix.pegaMedia());
         System.out.println("------------------------------------");
 
-        Serie witcher = new Serie();
-        witcher.setNome("The Witcher");
-        witcher.setAnoDeLancamento(2000);
+        Serie witcher = new Serie("The Witcher", 2019);
         witcher.exibeFichaTecnica();
         witcher.setTemporadas(10);
         witcher.setEpisodiosPorTemporada(10);
@@ -38,9 +34,7 @@ public class Main {
         System.out.println("Duração para maratonar " + witcher.getNome() + ": " + witcher.getDuracaoEmMinutos());
         System.out.println("------------------------------------");
 
-        Filme duna = new Filme();
-        duna.setNome("Duna");
-        duna.setAnoDeLancamento(2023);
+        Filme duna = new Filme("Duna",2023);
         duna.setDuracaoEmMinutos(200);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
@@ -64,14 +58,14 @@ public class Main {
 
         System.out.println("------------------------------------");
 
-        var senhorDosAneis = new Filme();
-        senhorDosAneis.setNome("O Senhor dos Anéis: As Duas Torres");
+        var senhorDosAneis = new Filme("O Senhor dos Anéis: As Duas Torres", 2002);
         senhorDosAneis.setDuracaoEmMinutos(223);
         senhorDosAneis.setDiretor("Peter Jackson");
         senhorDosAneis.setIncluidoNoPlano(true);
-        senhorDosAneis.setAnoDeLancamento(2002);
         senhorDosAneis.avalia(8.7);
         senhorDosAneis.exibeFichaTecnica();
+
+        senhorDosAneis.setNome("O Senhor dos Anéis: O retorno do Rei");
         System.out.println("------------------------------------");
 
         // Curso Alura - Java: Trabalhando com listas e coleções de dados
