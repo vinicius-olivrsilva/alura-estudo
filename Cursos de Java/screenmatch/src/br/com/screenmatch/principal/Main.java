@@ -1,4 +1,4 @@
-package br.com.screenmatch;
+package br.com.screenmatch.principal;
 
 import br.com.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.screenmatch.calculos.FiltroRecomendacao;
