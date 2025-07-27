@@ -5,6 +5,8 @@ import br.com.screenmatch.modelos.Serie;
 import br.com.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -38,5 +40,12 @@ public class PrincipalComListas {
         System.out.println("-------- Method Reference --------");
         minhaLista.forEach(System.out::println);
 
+        // Collection sort
+        Collections.sort(minhaLista);
+        System.out.println(" ### Lista ordenada ### ");
+        System.out.println(minhaLista);
+        minhaLista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
+        System.out.println(" ### Ordenando por ano ### ");
+        System.out.println(minhaLista);
     }
 }
