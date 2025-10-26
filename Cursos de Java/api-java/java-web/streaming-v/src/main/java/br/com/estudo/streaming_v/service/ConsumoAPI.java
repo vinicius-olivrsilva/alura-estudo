@@ -8,12 +8,7 @@ import java.net.http.HttpResponse;
 
 public class ConsumoAPI {
 
-    private String apiKey = System.getenv("OMDB_API_KEY");
-
     public String obterDados(String endereco) {
-
-        endereco = endereco + apiKey; //apagar isso depois
-
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endereco))
