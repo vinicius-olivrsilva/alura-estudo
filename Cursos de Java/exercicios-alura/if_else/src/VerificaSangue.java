@@ -23,6 +23,5 @@ public class VerificaSangue {
                 System.out.println("- Deve pesar mais de 50 kg.");
             }
         }
-
     }
 }
