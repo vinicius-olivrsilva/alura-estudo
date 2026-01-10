@@ -4,7 +4,12 @@ Por: Vinícius Oliveira - 17/01/2025
 
 Ordem dos cursos:
 
-**Curso Lógica de programação: mergulhe em programação com JavaScript;**
+### **Curso Lógica de programação: mergulhe em programação com JavaScript;**
 
-**Lógica de programação: explore funções e listas;**
+####  - **Lógica de programação: explore funções e listas;**
 
+####  - Lógica: praticando com desafios
+
+
+
+### Carreira Java Alura (cursos-java)
