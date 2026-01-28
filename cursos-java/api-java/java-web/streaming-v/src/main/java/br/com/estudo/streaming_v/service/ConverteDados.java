@@ -1,13 +1,13 @@
 package br.com.estudo.streaming_v.service;
 
-import br.com.estudo.streaming_v.model.DadosSerie;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.ObjectMapper;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ConverteDados implements IConverteDados {
-    ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
-    // recebe uma json/string e transforma na classe que foi indicada
     @Override
     public <T> T obterDados(String json, Class<T> classe) {
         try {
