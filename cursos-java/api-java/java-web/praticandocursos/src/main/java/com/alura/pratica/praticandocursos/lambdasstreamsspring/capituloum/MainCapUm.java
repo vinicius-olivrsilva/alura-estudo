@@ -1,6 +1,6 @@
-package com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulo1;
+package com.alura.pratica.praticandocursos.lambdasstreamsspring.capituloum;
 
-import com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulo1.contador.Tarefa;
+import com.alura.pratica.praticandocursos.lambdasstreamsspring.capituloum.contador.Tarefa;
 import com.alura.pratica.praticandocursos.lambdasstreamsspring.codigopronto.ConverteDados;
 import com.alura.pratica.praticandocursos.lambdasstreamsspring.codigopronto.Pessoa;
 import com.alura.pratica.praticandocursos.lambdasstreamsspring.codigopronto.SalvaLeArquivo;
@@ -13,7 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
 
-public class MainCap1 {
+public class MainCapUm {
     public void principal() throws IOException {
         Scanner scanner = new Scanner(System.in);
 

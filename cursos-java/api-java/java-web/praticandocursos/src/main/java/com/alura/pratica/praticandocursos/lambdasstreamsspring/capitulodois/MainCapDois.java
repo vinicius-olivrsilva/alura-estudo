@@ -1,11 +1,9 @@
-package com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulo2;
+package com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulodois;
 
 import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-public class MainCap2 {
+public class MainCapDois {
     public void principal() {
         BinaryOperator<Integer> multiplicacao =
                 (a ,b) ->  a * b;

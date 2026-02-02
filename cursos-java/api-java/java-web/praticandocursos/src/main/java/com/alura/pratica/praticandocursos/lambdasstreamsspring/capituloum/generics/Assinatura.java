@@ -1,4 +1,4 @@
-package com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulo1.generics;
+package com.alura.pratica.praticandocursos.lambdasstreamsspring.capituloum.generics;
 
 public class Assinatura {
     private final String nomePlano;

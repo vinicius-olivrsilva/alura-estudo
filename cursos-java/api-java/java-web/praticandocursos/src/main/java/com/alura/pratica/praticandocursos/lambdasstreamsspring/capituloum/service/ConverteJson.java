@@ -1,4 +1,4 @@
-package com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulo1.service;
+package com.alura.pratica.praticandocursos.lambdasstreamsspring.capituloum.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

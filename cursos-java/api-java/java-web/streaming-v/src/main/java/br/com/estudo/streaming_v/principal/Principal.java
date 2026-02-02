@@ -9,10 +9,7 @@ import br.com.estudo.streaming_v.service.ConverteDados;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Principal {
@@ -99,6 +96,31 @@ public class Principal {
 //                        " - Episódio: " + e.getTitulo() +
 //                        ", Data lançamento: " + e.getDataLancamento().format(formataData)));
 
+        // Encontra episódio por alguma palavra (trecho)
+//        System.out.println("Digite o título do episódio ou parte dele para ser encontrado: ");
+//        String trechoTitulo = scanner.nextLine();
+//        Optional<Episodio> episodioBuscado = episodios.stream()
+//                .filter(e -> e.getTitulo().toUpperCase().contains(trechoTitulo.toUpperCase()))
+//                .findFirst();
+//        if (episodioBuscado.isPresent()){
+//            System.out.println("Episodio encontrado!");
+//            System.out.println("Temporada: " + episodioBuscado.get().getTemporada());
+//        } else {
+//            System.out.println("Episodio não encontrado");
+//        }
 
+        // cria um Map, onde a chave é a temporada e o valor é a média das avaliações dos episódios
+        Map<Integer, Double> avaliacoesPorTemporada = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.groupingBy(Episodio::getTemporada, Collectors.averagingDouble(Episodio::getAvaliacao)));
+        System.out.println(avaliacoesPorTemporada);
+
+        DoubleSummaryStatistics estatisticas = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.summarizingDouble(Episodio::getAvaliacao));
+        System.out.println("Média: " + estatisticas.getAverage());
+        System.out.println("Pior episódio: " + estatisticas.getMin());
+        System.out.println("Melhor episódio: " + estatisticas.getMax());
+        System.out.println("Quantidade: " + estatisticas.getCount());
     }
 }

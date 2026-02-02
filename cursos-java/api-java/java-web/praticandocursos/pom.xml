@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.alura.pratica</groupId>
-	<artifactId>praticandocursos</artifactId>
+	<artifactId>praticacursos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>praticandocursos</name>
 	<description>Atividades para praticar durante os cursos</description>

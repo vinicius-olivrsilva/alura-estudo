@@ -1,7 +1,6 @@
-package com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulo1.contador;
+package com.alura.pratica.praticandocursos.lambdasstreamsspring.capituloum.contador;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 // @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tarefa {

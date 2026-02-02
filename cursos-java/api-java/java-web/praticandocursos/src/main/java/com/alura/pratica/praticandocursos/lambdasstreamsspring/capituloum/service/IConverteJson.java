@@ -1,4 +1,4 @@
-package com.alura.pratica.praticandocursos.lambdasstreamsspring.capitulo1.service;
+package com.alura.pratica.praticandocursos.lambdasstreamsspring.capituloum.service;
 
 public interface IConverteJson {
     <T> T obterDados(String json, Class<T> classe);
