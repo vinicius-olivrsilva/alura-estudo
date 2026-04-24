@@ -91,12 +91,14 @@ public class Principal {
     }
 
     private void listarSeriesBuscadas() {
-        List<Serie> seriesList = dadosSerie.stream()
-                .map(d -> new Serie(d))
-                .collect(Collectors.toList());
+//        List<Serie> seriesList = dadosSerie.stream()
+//                .map(d -> new Serie(d))
+//                .collect(Collectors.toList());
+
+        List<Serie> series = repositorio.findAll();
 
         System.out.println("########### DADOS DAS SÉRIES ##############");
-        seriesList.stream()
+        series.stream()
                 .sorted(Comparator.comparing(Serie::getGenero))
                 .forEach(System.out::println);
         System.out.println("#######################################");

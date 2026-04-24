@@ -21,5 +21,6 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Principal principal = new Principal(repositorio);
 		principal.exibeMenu();
+		System.out.println("Teste variável de ambiente no sistema: " + System.getenv("TESTE"));
 	}
 }
