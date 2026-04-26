@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner {
 
-	@Autowired				// O spring que vai gerenciar minhas injeções de dependencia
+	@Autowired				// O spring que vai gerenciar minhas injeções de dependência
 	private SerieRepository repositorio;
 
 	public static void main(String[] args) {
@@ -21,6 +21,5 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Principal principal = new Principal(repositorio);
 		principal.exibeMenu();
-		System.out.println("Teste variável de ambiente no sistema: " + System.getenv("TESTE"));
 	}
 }
