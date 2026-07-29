@@ -37,6 +37,8 @@ public class Principal {
                     2 - Buscar episódios
                     3 - Listar séries buscadas
                     4 - Busca série pelo tútulo
+                    5 - Buscar série por ator
+                    6 - Listar Top 5 
                     
                     0 - Sair
                     """;
@@ -57,6 +59,12 @@ public class Principal {
                     break;
                 case 4:
                     buscarSeriePeloTitulo();
+                    break;
+                case 5:
+                    buscarSeriePorAtor();
+                    break;
+                case 6:
+                    buscarTopCintoSerie();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -139,7 +147,6 @@ public class Principal {
         System.out.println("#######################################");
     }
 
-
     private void buscarSeriePeloTitulo() {
         System.out.println("####### Séries cadastradas ########");
         listarSeriesBuscadas();
@@ -153,5 +160,37 @@ public class Principal {
         } else {
             System.out.println("Série não encontrada!");
         }
+    }
+
+    private void buscarSeriePorAtor() {
+        System.out.println("Qual ator deseja buscar? ");
+        var nomeAtor = leitura.nextLine();
+        System.out.println("Avaliação a partir de que valor? ");
+        var avaliacao = leitura.nextDouble();
+        List<Serie> seriesEncontradas = repositorio.findByAtoresContainingIgnoreCaseAndAvaliacaoGreaterThanEqual(nomeAtor, avaliacao);
+
+        if(seriesEncontradas.isEmpty()) {
+            System.out.println("Nenhuma série encontrada");
+        } else {
+            System.out.println("Séries em que " + nomeAtor + " trabalhou:");
+            seriesEncontradas.forEach(s -> System.out.println(s.getTitulo() + " - Avaliação: " + s.getAvaliacao()));
+        }
+    }
+
+    private void buscarTopCintoSerie() {
+        System.out.println("##### TOP 5 #####");
+//        listarSeriesBuscadas(); // OBS: Com stream tenho que carregar os dados da lista séries
+//        List<Serie> collect = series.stream()
+//                .sorted(Comparator.comparingDouble(Serie::getAvaliacao).reversed())
+//                .limit(5)
+//                .collect(Collectors.toList());
+//
+//        collect.forEach(s ->
+//                System.out.println(s.getTitulo() + " - Nota: " + s.getAvaliacao()));
+
+        List<Serie> topSeries = repositorio.findTop5ByOrderByAvaliacaoDesc();
+
+        topSeries.forEach(s ->
+                System.out.println(s.getTitulo() + " - nota: " + s.getAvaliacao()));
     }
 }
