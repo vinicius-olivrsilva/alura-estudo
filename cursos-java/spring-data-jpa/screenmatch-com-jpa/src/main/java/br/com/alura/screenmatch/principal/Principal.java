@@ -7,7 +7,6 @@ import br.com.alura.screenmatch.model.Serie;
 import br.com.alura.screenmatch.repository.SerieRepository;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -37,8 +36,9 @@ public class Principal {
                     1 - Buscar séries
                     2 - Buscar episódios
                     3 - Listar séries buscadas
+                    4 - Busca série pelo tútulo
                     
-                    0 - Sair                                 
+                    0 - Sair
                     """;
 
             System.out.println(menu);
@@ -54,6 +54,9 @@ public class Principal {
                     break;
                 case 3:
                     listarSeriesBuscadas();
+                    break;
+                case 4:
+                    buscarSeriePeloTitulo();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -106,9 +109,9 @@ public class Principal {
                 temporadas.add(dadosTemporada);
             }
             temporadas.forEach(System.out::println);
-            // usa stream em temporadas, usando flatmap para acessar os episodios que existe dentro de DadosTemporada,
-            // usando stream em episodios e transformando(map) criando cada novo Episodio com
-            // o número da temporada e os dados de DadosEpisodio e incluindo cada um na lista episodios que foi criada,
+            // usa stream em temporadas, usando flatmap para acessar os episódios que existe dentro de DadosTemporada,
+            // usando stream em episódios e transformando(map) criando cada novo Episodio com
+            // o número da temporada e os dados de DadosEpisodio e incluindo cada um na lista episódios que foi criada,
             // setando a lista episodios em serieEncontrada e depois salvando serieEncontrada no banco de dados com o repositorio.save
             List<Episodio> episodios = temporadas.stream()
                     .flatMap(d -> d.episodios().stream()
@@ -134,5 +137,21 @@ public class Principal {
                 .sorted(Comparator.comparing(Serie::getGenero))
                 .forEach(System.out::println);
         System.out.println("#######################################");
+    }
+
+
+    private void buscarSeriePeloTitulo() {
+        System.out.println("####### Séries cadastradas ########");
+        listarSeriesBuscadas();
+        System.out.println("Qual série deseja buscar? ");
+        var nomeSerie = leitura.nextLine();
+
+        Optional<Serie> serieEncontrada = repositorio.findByTituloContainingIgnoreCase(nomeSerie);
+
+        if (serieEncontrada.isPresent()) {
+            System.out.println("Dados da Série: " + serieEncontrada.get());
+        } else {
+            System.out.println("Série não encontrada!");
+        }
     }
 }
