@@ -1,9 +1,6 @@
 package br.com.alura.screenmatch.principal;
 
-import br.com.alura.screenmatch.model.DadosSerie;
-import br.com.alura.screenmatch.model.DadosTemporada;
-import br.com.alura.screenmatch.model.Episodio;
-import br.com.alura.screenmatch.model.Serie;
+import br.com.alura.screenmatch.model.*;
 import br.com.alura.screenmatch.repository.SerieRepository;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
@@ -38,7 +35,9 @@ public class Principal {
                     3 - Listar séries buscadas
                     4 - Busca série pelo tútulo
                     5 - Buscar série por ator
-                    6 - Listar Top 5 
+                    6 - Listar Top 5
+                    7 - Buscar séries por categoria
+                    8 - Filtrar séries
                     
                     0 - Sair
                     """;
@@ -65,6 +64,12 @@ public class Principal {
                     break;
                 case 6:
                     buscarTopCintoSerie();
+                    break;
+                case 7:
+                    buscarSeriesPorCategoria();
+                    break;
+                case 8:
+                    buscarPorMaxTemporadasEAvaliacao();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -192,5 +197,27 @@ public class Principal {
 
         topSeries.forEach(s ->
                 System.out.println(s.getTitulo() + " - nota: " + s.getAvaliacao()));
+    }
+
+    private void buscarSeriesPorCategoria() {
+        System.out.println("Qual o genero da série? ");
+        var genero = leitura.nextLine();
+        Categoria categoria = Categoria.fromPortuguesBr(genero);
+        List<Serie> seriesPorCategoria = repositorio.findByGenero(categoria);
+        System.out.println("Séries da categoria " + categoria.getCategoriaPortuguesBr());
+        seriesPorCategoria.forEach(System.out::println);
+    }
+
+    private void buscarPorMaxTemporadasEAvaliacao() {
+        System.out.println("Até quantas temporadas a série deve ter? ");
+        var limiteTemporadas = leitura.nextInt();
+        System.out.println("Qual a avaliação mínima a série deve ter? ");
+        var avaliacao = leitura.nextDouble();
+
+        // Usando derived queries
+        List<Serie> seriesEncontradas = repositorio.
+                findByTotalTemporadasLessThanEqualAndAvaliacaoGreaterThanEqual(limiteTemporadas, avaliacao);
+
+        seriesEncontradas.forEach(System.out::println);
     }
 }
